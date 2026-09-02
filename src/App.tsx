@@ -107,42 +107,48 @@ function App() {
   const [sent, setSent] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  useEffect(() => {
-  history.scrollRestoration = 'manual';
-  window.scrollTo(0, 0);
+    useEffect(() => {
+    history.scrollRestoration = 'manual';
 
-  const revealElements = document.querySelectorAll<HTMLElement>('[data-reveal]');
+    const scrollToTop = () => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    };
 
-  if (typeof IntersectionObserver === 'undefined') {
-    revealElements.forEach((element) => element.classList.add('reveal'));
-    return;
-  }
+    scrollToTop();
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('reveal');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12 },
-  );
+    const timer = window.setTimeout(scrollToTop, 100);
 
-  revealElements.forEach((element) => observer.observe(element));
+    const revealElements = document.querySelectorAll<HTMLElement>('[data-reveal]');
 
-  if (window.location.hash) {
-    requestAnimationFrame(() => {
-      document.querySelector(window.location.hash)?.scrollIntoView();
-    });
-  }
+    if (typeof IntersectionObserver === 'undefined') {
+      revealElements.forEach((element) => element.classList.add('reveal'));
+    } else {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('reveal');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
 
-  return () => {
-    observer.disconnect();
-    history.scrollRestoration = 'auto';
-  };
-}, []);
+      revealElements.forEach((element) => observer.observe(element));
+
+      return () => {
+        observer.disconnect();
+        window.clearTimeout(timer);
+        history.scrollRestoration = 'auto';
+      };
+    }
+
+    return () => {
+      window.clearTimeout(timer);
+      history.scrollRestoration = 'auto';
+    };
+  }, []);
 
   useEffect(() => {
     if (!selectedProject) return;
@@ -421,12 +427,36 @@ function App() {
         </div>
       </section>
 
-      <footer className="bg-[#24302b] px-5 py-8 text-[#f4f0e8] md:px-10">
-        <div className="mx-auto flex max-w-[1440px] flex-col justify-between gap-6 border-t border-[#f4f0e8]/20 pt-6 sm:flex-row sm:items-end">
-          <div><p className="text-[18px] tracking-[-.03em] serif">Елена Медведева</p><p className="mt-2 text-[10px] uppercase tracking-[.14em] text-[#f4f0e8]/50">Студия декора событий</p></div>
-          <div className="flex items-center gap-7"><a href="https://instagram.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-[10px] uppercase tracking-[.13em] text-[#f4f0e8]/65 hover:text-[#c8d5c6]" data-testid="link-instagram"><Instagram size={15} strokeWidth={1.3} /> Instagram</a><a href="#top" className="text-[10px] uppercase tracking-[.13em] text-[#f4f0e8]/65 hover:text-[#c8d5c6]" data-testid="link-back-top">Наверх ↑</a></div>
-        </div>
-      </footer>
+      <footer className="bg-[#c8d9cc] px-5 py-8 text-[#24302b] md:px-10">
+  <div className="mx-auto flex max-w-[1440px] flex-col justify-between gap-6 border-t border-[#24302b]/20 pt-6 sm:flex-row sm:items-end">
+    <div>
+      <p className="text-[18px] tracking-[-.03em] serif">Елена Медведева</p>
+      <p className="mt-2 text-[10px] uppercase tracking-[.14em] text-[#24302b]/50">
+        Студия декора событий
+      </p>
+    </div>
+
+    <div className="flex items-center gap-7">
+      <a
+        href="https://instagram.com"
+        target="_blank"
+        rel="noreferrer"
+        className="flex items-center gap-2 text-[10px] uppercase tracking-[.13em] text-[#24302b]/60 hover:text-[#6c8173]"
+        data-testid="link-instagram"
+      >
+        <Instagram size={15} strokeWidth={1.3} /> Instagram
+      </a>
+
+      <a
+        href="#top"
+        className="text-[10px] uppercase tracking-[.13em] text-[#24302b]/60 hover:text-[#6c8173]"
+        data-testid="link-back-top"
+      >
+        Наверх ↑
+      </a>
+    </div>
+  </div>
+</footer>
 
       {selectedProject && (
         <div
