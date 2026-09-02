@@ -146,30 +146,6 @@
 .section-mint {
   background: #e4ece5;
 }
-.section-paper-to-mint {
-  background: linear-gradient(
-    to bottom,
-    #f4f0e8 0%,
-    #f4f0e8 82%,
-    #e4ece5 100%
-  );
-}
-.section-mint-to-paper {
-  background: linear-gradient(
-    to bottom,
-    #e4ece5 0%,
-    #e4ece5 82%,
-    #f4f0e8 100%
-  );
-}
-.section-mint-to-dark {
-  background: linear-gradient(
-    to bottom,
-    #e4ece5 0%,
-    #e4ece5 82%,
-    #2f5147 100%
-  );
-}
 .eyebrow { font-family: var(--app-font-mono); text-transform: uppercase; letter-spacing: .12em; font-size: 10px; }
 .serif { font-family: var(--app-font-serif); }
 .grain::after {
