@@ -410,7 +410,7 @@ function App() {
         </div>
       </section>
 
-      <footer className="bg-[#24302b] px-5 py-8 text-[#f4f0e8] md:px-10">
+      <footer className="bg-[#2f5147] px-5 py-8 text-[#f4f0e8] md:px-10">
         <div className="mx-auto flex max-w-[1440px] flex-col justify-between gap-6 border-t border-[#f4f0e8]/20 pt-6 sm:flex-row sm:items-end">
           <div><p className="text-[18px] tracking-[-.03em] serif">Елена Медведева</p><p className="mt-2 text-[10px] uppercase tracking-[.14em] text-[#f4f0e8]/50">Студия декора событий</p></div>
           <div className="flex items-center gap-7"><a href="https://instagram.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-[10px] uppercase tracking-[.13em] text-[#f4f0e8]/65 hover:text-[#c8d5c6]" data-testid="link-instagram"><Instagram size={15} strokeWidth={1.3} /> Instagram</a><a href="#top" className="text-[10px] uppercase tracking-[.13em] text-[#f4f0e8]/65 hover:text-[#c8d5c6]" data-testid="link-back-top">Наверх ↑</a></div>
