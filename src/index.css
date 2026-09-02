@@ -198,7 +198,7 @@
   }
 }
 
-/* EVENT STUDIO — color system */
+/* EVENT STUDIO — FINAL COLOR SYSTEM */
 
 :root {
   --paper: #f4f0e8;
@@ -208,10 +208,10 @@
   --gold: #B89A63;
 }
 
-/* ===== CONTINUOUS MINT FROM PROCESS TO FOOTER ===== */
+/* MINT CONTINUITY */
 
 main.grain {
-  background-color: #e4ece5 !important;
+  background: var(--mint) !important;
 }
 
 #process,
@@ -219,15 +219,27 @@ main.grain {
 #about + section,
 #contact,
 footer {
-  background-color: #e4ece5 !important;
+  background-color: var(--mint) !important;
 }
 
-/* ===== GOLD ACCENTS ===== */
+/* GOLD — all existing gold Tailwind classes */
 
-main.grain [class*="text-[#B89A63]"] {
-  color: #B89A63 !important;
+main.grain [class~="text-[#B89A63]"],
+main.grain [class*="text-[#B89A63]/"],
+main.grain [class~="border-[#B89A63]"],
+main.grain [class*="border-[#B89A63]/"] {
+  color: var(--gold) !important;
 }
 
-main.grain [class*="border-[#B89A63]"] {
-  border-color: #B89A63 !important;
+main.grain [class~="border-[#B89A63]"],
+main.grain [class*="border-[#B89A63]/"] {
+  border-color: var(--gold) !important;
+}
+
+/* LUCIDE ARROWS INSIDE GOLD LINKS */
+
+main.grain a.text-\[\#B89A63\] svg,
+main.grain button.text-\[\#B89A63\] svg {
+  color: var(--gold) !important;
+  stroke: var(--gold) !important;
 }
