@@ -190,5 +190,37 @@
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* EVENT STUDIO — color system */
+:root {
+  --paper: #f4f0e8;
+  --mint: #e4ece5;
+  --ink: #24302b;
+  --sage: #6c8173;
+  --gold: #B89A63;
+}
+
+/* Continuous mint area from Process to Footer */
+#process,
+#about,
+#about ~ section,
+#contact,
+footer {
+  background-color: var(--mint) !important;
+}
+
+/* Gold accent */
+[class*="text-[#B89A63]"] {
+  color: var(--gold) !important;
+}
+
+[class*="border-[#B89A63]"] {
+  border-color: var(--gold) !important;
 }
