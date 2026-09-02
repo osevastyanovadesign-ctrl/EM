@@ -199,6 +199,7 @@
 }
 
 /* EVENT STUDIO — color system */
+
 :root {
   --paper: #f4f0e8;
   --mint: #e4ece5;
@@ -207,11 +208,26 @@
   --gold: #B89A63;
 }
 
-/* Continuous mint area from Process to Footer */
+/* ===== CONTINUOUS MINT FROM PROCESS TO FOOTER ===== */
+
+main.grain {
+  background-color: #e4ece5 !important;
+}
+
 #process,
 #about,
-#about ~ section,
+#about + section,
 #contact,
 footer {
-  background-color: var(--mint) !important;
+  background-color: #e4ece5 !important;
+}
+
+/* ===== GOLD ACCENTS ===== */
+
+main.grain [class*="text-[#B89A63]"] {
+  color: #B89A63 !important;
+}
+
+main.grain [class*="border-[#B89A63]"] {
+  border-color: #B89A63 !important;
 }
