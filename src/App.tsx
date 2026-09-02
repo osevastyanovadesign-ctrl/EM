@@ -310,7 +310,7 @@ function App() {
         </div>
       </section>
 
-      <section id="process" className="bg-[#e4ece5] px-5 py-24 text-[#24302b] md:px-10 md:py-36">
+      <section id="process" className="bg-[#B8D8D3] px-5 py-24 text-[#24302b] md:px-10 md:py-36">
         <div className="mx-auto max-w-[1440px]">
           <div className="grid gap-10 md:grid-cols-[.7fr_1.3fr] md:gap-24" data-reveal>
             <div>
@@ -336,7 +336,7 @@ function App() {
         </div>
       </section>
 
-      <section id="about" className="bg-[#e4ece5] px-5 py-24 text-[#24302b] md:px-10 md:py-36">
+      <section id="about" className="bg-[#B8D8D3] px-5 py-24 text-[#24302b] md:px-10 md:py-36">
         <div className="mx-auto grid max-w-[1440px] items-center gap-12 md:grid-cols-[.82fr_1.18fr] md:gap-28">
           <div className="relative max-w-[480px]" data-reveal>
             <img src={elenaPortrait} alt="Елена Медведева, основатель студии декора событий" className="aspect-[3/4] w-full object-cover object-center" data-testid="img-elena-portrait" />
