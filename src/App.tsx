@@ -107,6 +107,15 @@ function App() {
   const [sent, setSent] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
+    useEffect(() => {
+    if (window.location.hash) return;
+
+    const navigationEntry = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined;
+
+    if (navigationEntry?.type === 'reload') {
+      window.scrollTo(0, 0);
+    }
+  }, []);
   useEffect(() => {
     const revealElements = document.querySelectorAll<HTMLElement>('[data-reveal]');
     if (typeof IntersectionObserver === 'undefined') {
