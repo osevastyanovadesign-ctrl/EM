@@ -215,12 +215,3 @@
 footer {
   background-color: var(--mint) !important;
 }
-
-/* Gold accent */
-[class*="text-[#B89A63]"] {
-  color: var(--gold) !important;
-}
-
-[class*="border-[#B89A63]"] {
-  border-color: var(--gold) !important;
-}
