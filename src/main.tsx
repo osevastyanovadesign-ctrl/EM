@@ -6,7 +6,7 @@ import { ErrorBoundary } from '@/components/error-boundary';
 import './index.css';
 history.scrollRestoration = 'manual';
 
-window.addEventListener('beforeunload', () => {
+window.addEventListener('pageshow', () => {
   window.scrollTo(0, 0);
 });
 
