@@ -168,7 +168,7 @@ function App() {
               </a>
             ))}
           </nav>
-          <button type="button" onClick={scrollToContact} className="hidden border-b border-[#6c8173] pb-1 text-[11px] uppercase tracking-[.13em] text-[#6c8173] transition-colors hover:text-[#24302b] hover:border-[#24302b] lg:block" data-testid="button-header-inquire">
+          <button type="button" onClick={scrollToContact} className="hidden border-b border-[#B89A63] pb-1 text-[11px] uppercase tracking-[.13em] text-[#B89A63] transition-colors hover:text-[#24302b] hover:border-[#24302b] lg:block" data-testid="button-header-inquire">
             Обсудить событие
           </button>
           <button type="button" className="rounded-full border border-[#24302b]/45 p-2 lg:hidden" onClick={() => setMenuOpen((open) => !open)} aria-label={menuOpen ? 'Закрыть меню' : 'Открыть меню'} data-testid="button-mobile-menu">
@@ -310,7 +310,7 @@ function App() {
         </div>
       </section>
 
-      <section id="process" className="bg-[#B8D8D3] px-5 py-24 text-[#24302b] md:px-10 md:py-36">
+      <section id="process" className="bg-[#e4ece5] px-5 py-24 text-[#24302b] md:px-10 md:py-36">
         <div className="mx-auto max-w-[1440px]">
           <div className="grid gap-10 md:grid-cols-[.7fr_1.3fr] md:gap-24" data-reveal>
             <div>
@@ -327,7 +327,7 @@ function App() {
            <div className="mt-20 grid border-t border-[#24302b]/20 md:grid-cols-4" data-reveal>
             {process.map(([number, title, copy]) => (
                <div key={number} className="border-b border-[#24302b]/20 py-7 md:border-b-0 md:border-r md:px-6 md:first:pl-0 md:last:border-r-0">
-                 <p className="eyebrow text-[#6c8173]">Шаг {number}</p>
+                 
                 <h3 className="mt-10 text-[2rem] tracking-[-.04em] serif">{title}</h3>
                 <p className="mt-4 max-w-[245px] text-[13px] leading-[1.6] text-[#24302b]/65">{copy}</p>
               </div>
@@ -336,7 +336,7 @@ function App() {
         </div>
       </section>
 
-      <section id="about" className="bg-[#B8D8D3] px-5 py-24 text-[#24302b] md:px-10 md:py-36">
+      <section id="about" className="bg-[#e4ece5] px-5 py-24 text-[#24302b] md:px-10 md:py-36">
         <div className="mx-auto grid max-w-[1440px] items-center gap-12 md:grid-cols-[.82fr_1.18fr] md:gap-28">
           <div className="relative max-w-[480px]" data-reveal>
             <img src={elenaPortrait} alt="Елена Медведева, основатель студии декора событий" className="aspect-[3/4] w-full object-cover object-center" data-testid="img-elena-portrait" />
@@ -365,7 +365,7 @@ function App() {
       <section className="bg-[#f4f0e8] px-5 py-24 text-[#24302b] md:px-10 md:py-32">
         <div className="mx-auto grid max-w-[1440px] gap-10 md:grid-cols-[.45fr_1.55fr] md:gap-24" data-reveal>
           <div className="flex items-start gap-3">
-            <Plus size={17} strokeWidth={1.3} />
+            <Plus size={17} strokeWidth={1.3} className="text-[#B89A63]" />
             <p className="eyebrow">Записка Елены</p>
           </div>
           <blockquote>
