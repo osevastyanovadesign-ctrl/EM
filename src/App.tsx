@@ -108,30 +108,41 @@ function App() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   useEffect(() => {
-    const revealElements = document.querySelectorAll<HTMLElement>('[data-reveal]');
-    if (typeof IntersectionObserver === 'undefined') {
-      revealElements.forEach((element) => element.classList.add('reveal'));
-      return;
-    }
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('reveal');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12 },
-    );
-    revealElements.forEach((element) => observer.observe(element));
-    if (window.location.hash) {
-      requestAnimationFrame(() => {
-        document.querySelector(window.location.hash)?.scrollIntoView();
+  history.scrollRestoration = 'manual';
+  window.scrollTo(0, 0);
+
+  const revealElements = document.querySelectorAll<HTMLElement>('[data-reveal]');
+
+  if (typeof IntersectionObserver === 'undefined') {
+    revealElements.forEach((element) => element.classList.add('reveal'));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal');
+          observer.unobserve(entry.target);
+        }
       });
-    }
-    return () => observer.disconnect();
-  }, []);
+    },
+    { threshold: 0.12 },
+  );
+
+  revealElements.forEach((element) => observer.observe(element));
+
+  if (window.location.hash) {
+    requestAnimationFrame(() => {
+      document.querySelector(window.location.hash)?.scrollIntoView();
+    });
+  }
+
+  return () => {
+    observer.disconnect();
+    history.scrollRestoration = 'auto';
+  };
+}, []);
 
   useEffect(() => {
     if (!selectedProject) return;
