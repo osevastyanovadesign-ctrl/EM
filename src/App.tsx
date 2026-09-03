@@ -127,11 +127,6 @@ function App() {
       { threshold: 0.12 },
     );
     revealElements.forEach((element) => observer.observe(element));
-    if (window.location.hash) {
-      requestAnimationFrame(() => {
-        document.querySelector(window.location.hash)?.scrollIntoView();
-      });
-    }
     return () => observer.disconnect();
   }, []);
 
