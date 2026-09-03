@@ -5,6 +5,13 @@ import { ErrorBoundary } from '@/components/error-boundary';
 
 import './index.css';
 
+// Всегда начинаем страницу с Hero после обновления
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+window.scrollTo(0, 0);
+
 createRoot(document.getElementById('root')!, {
   // Keeps caught errors off reportError(), which would raise the dev overlay.
   onCaughtError: (error, errorInfo) => {
